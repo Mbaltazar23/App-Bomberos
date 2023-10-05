@@ -8,7 +8,6 @@ import { UpdateProductUseCase } from "../../Domain/useCases/product/UpdateProduc
 import { createContext } from "react";
 import { Product } from "../../Domain/entities/Product";
 import * as ImagePicker from "expo-image-picker";
-import { GetAllStockProductsUseCase } from "../../Domain/useCases/product/GetAllStockProducts";
 
 export interface ProductContextProps {
   products: Product[];

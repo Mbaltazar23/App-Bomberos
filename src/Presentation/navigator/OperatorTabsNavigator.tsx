@@ -1,8 +1,8 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { OperatorStackNavigator } from "./OperatorStackNavigator";
-import { Image } from "react-native";
 import { ProfileScreen } from "../views/profile/Profile";
+import { Image } from "react-native";
 
 const Tab = createBottomTabNavigator();
 

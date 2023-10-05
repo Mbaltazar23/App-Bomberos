@@ -19,7 +19,7 @@ interface Props
   extends StackScreenProps<
     OperatorMovementStackParamList,
     "OperatorMovementCreateScreen"
-  > {}
+  > { }
 
 export const OperatorMovementCreateScreen = ({ navigation, route }: Props) => {
   const {
@@ -45,9 +45,15 @@ export const OperatorMovementCreateScreen = ({ navigation, route }: Props) => {
   useEffect(() => {
     if (responseMessage !== "") {
       ToastAndroid.show(responseMessage, ToastAndroid.LONG);
-      navigation.navigate("OperatorMovementListScreen");
     }
   }, [responseMessage]);
+
+  const handleCreateMovement = async () => {
+    const isSuccess = await createMovement()
+    if (isSuccess) {
+      navigation.replace("OperatorMovementListScreen");
+    }
+  }
 
   return (
     <View style={styles.container}>
@@ -56,7 +62,6 @@ export const OperatorMovementCreateScreen = ({ navigation, route }: Props) => {
           source={require("../../../../../../assets/movement.png")}
           style={styles.image}
         />
-        
       </View>
 
       <View style={styles.form}>
@@ -99,7 +104,7 @@ export const OperatorMovementCreateScreen = ({ navigation, route }: Props) => {
           <View style={styles.buttonContainer}>
             <RoundedButton
               text="CREAR MOVIMIENTO"
-              onPress={() => createMovement()}
+              onPress={() => handleCreateMovement()}
             />
           </View>
         </ScrollView>

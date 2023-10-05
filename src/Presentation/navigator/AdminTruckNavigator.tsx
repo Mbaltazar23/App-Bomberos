@@ -4,8 +4,8 @@ import { Image, TouchableOpacity } from "react-native";
 import { AdminTruckCreateScreen } from "../views/admin/trucks/create/TruckCreate";
 import { AdminTruckUpdateScreen } from "../views/admin/trucks/update/TruckUpdate";
 import { AdminTruckListScreen } from "../views/admin/trucks/list/TruckList";
-import { Truck } from "../../Domain/entities/Truck";
 import { TruckProvider } from "../context/TruckContext";
+import { Truck } from "../../Domain/entities/Truck";
 
 export type AdminTruckStackParamList = {
   AdminTruckListScreen: undefined;

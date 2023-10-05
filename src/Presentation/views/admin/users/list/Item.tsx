@@ -26,6 +26,11 @@ export const AdminUserListItem = ({ user, remove }: Props) => {
             source={require("../../../../../../assets/icon_admin.png")}
             style={styles.image}
           />
+        ) : user.roles[0]?.name === "Bombero" ? (
+          <Image
+            source={require("../../../../../../assets/icon_firefighter.png")}
+            style={styles.image}
+          />
         ) : (
           <Image
             source={require("../../../../../../assets/icon_operator.png")}

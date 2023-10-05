@@ -7,7 +7,7 @@ import { RoundedButton } from "../../components/RoundedButton";
 import useViewModel from "./ViewModel";
 import styles from "./Styles";
 
-interface Props extends StackScreenProps<RootStackParamList, "HomeScreen"> {}
+interface Props extends StackScreenProps<RootStackParamList, "HomeScreen"> { }
 
 export const HomeScreen = ({ navigation, route }: Props) => {
   const { email, password, onChange, errorMessage, user, login } =
@@ -25,6 +25,8 @@ export const HomeScreen = ({ navigation, route }: Props) => {
       if (role === "Administrador") {
         // Verifica si el valor de "role" es "Alumno"
         navigation.replace("AdminTabsNavigator");
+      } else if (role === "Bombero") {
+        navigation.replace("FireFighterTabsNavigator")
       } else {
         navigation.replace("OperatorTabsNavigator");
       }

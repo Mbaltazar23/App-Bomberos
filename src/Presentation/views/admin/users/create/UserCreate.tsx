@@ -34,9 +34,15 @@ export const AdminUserCreateScreen = ({ navigation, route }: Props) => {
   useEffect(() => {
     if (responseMessage !== "") {
       ToastAndroid.show(responseMessage, ToastAndroid.LONG);
-      navigation.navigate("AdminUserListScreen");
     }
   }, [responseMessage]);
+
+  const handleCreateUser = async() => {
+    const isSuccess = await createUser()
+    if (isSuccess) {
+      navigation.navigate("AdminUserListScreen");
+    }
+  }
 
   return (
     <View style={styles.container}>
@@ -86,7 +92,7 @@ export const AdminUserCreateScreen = ({ navigation, route }: Props) => {
           />
 
           <View style={styles.buttonContainer}>
-            <RoundedButton text="CREAR USUARIO" onPress={() => createUser()} />
+            <RoundedButton text="CREAR USUARIO" onPress={() => handleCreateUser()} />
           </View>
         </ScrollView>
       </View>

@@ -19,7 +19,7 @@ interface Props
   extends StackScreenProps<
     OperatorMovementStackParamList,
     "OperatorMovementUpdateScreen"
-  > {}
+  > { }
 
 export const OperatorMovementUpdateScreen = ({ navigation, route }: Props) => {
   const { movement, products, trucks } = route.params;
@@ -40,9 +40,15 @@ export const OperatorMovementUpdateScreen = ({ navigation, route }: Props) => {
   useEffect(() => {
     if (responseMessage !== "") {
       ToastAndroid.show(responseMessage, ToastAndroid.LONG);
-      navigation.navigate("OperatorMovementListScreen");
     }
   }, [responseMessage]);
+
+  const handleUpdateMovement = async () => {
+    const isSuccess = await updateMovement()
+    if (isSuccess) {
+      navigation.navigate("OperatorMovementListScreen");
+    }
+  }
 
   return (
     <View style={styles.container}>
@@ -101,7 +107,7 @@ export const OperatorMovementUpdateScreen = ({ navigation, route }: Props) => {
           <View style={styles.buttonContainer}>
             <RoundedButton
               text="EDITAR MOVIMIENTO"
-              onPress={() => updateMovement()}
+              onPress={() => handleUpdateMovement()}
             />
           </View>
         </ScrollView>

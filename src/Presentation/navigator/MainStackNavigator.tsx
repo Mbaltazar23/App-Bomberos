@@ -1,7 +1,8 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { AdminTabsNavigator } from "./AdminTabsNavigator";
+import { FireFighterTabsNavigator } from "./FireFighterTabsNavigator";
 import { OperatorTabsNavigator } from "./OperatorTabsNavigator";
+import { AdminTabsNavigator } from "./AdminTabsNavigator";
 import { ProfileScreen } from "../views/profile/Profile";
 import { UserProvider } from "../context/UserContext";
 import { HomeScreen } from "../views/home/Home";
@@ -12,6 +13,7 @@ export type RootStackParamList = {
   RegisterScreen: undefined;
   AdminTabsNavigator: undefined;
   OperatorTabsNavigator: undefined;
+  FireFighterTabsNavigator: undefined
   ProfileScreen: { user: User };
 };
 
@@ -36,6 +38,12 @@ export const MainStackNavigator = () => {
           name="OperatorTabsNavigator"
           component={OperatorTabsNavigator}
         />
+
+        <Stack.Screen
+          name="FireFighterTabsNavigator"
+          component={FireFighterTabsNavigator}
+        />
+
         <Stack.Screen
           name="ProfileScreen"
           component={ProfileScreen}

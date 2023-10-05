@@ -11,7 +11,7 @@ interface Props {
   movement: Movement;
   trucks: Truck[]
   products: Product[]
-    remove: (id: string) => void;
+  remove: (id: string) => void;
   navigation: StackNavigationProp<
     OperatorMovementStackParamList,
     "OperatorMovementListScreen",
@@ -31,8 +31,8 @@ export const OperatorMovementListItem = ({
       onPress={() =>
         navigation.navigate("OperatorMovementUpdateScreen", {
           movement: movement,
-          trucks:trucks,
-          products:products
+          trucks: trucks,
+          products: products
         })
       }
     >

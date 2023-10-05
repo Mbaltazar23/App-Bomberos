@@ -4,7 +4,7 @@ import { User } from "../../../../Domain/entities/User";
 
 const ApiBombero = axios.create({
   //URL LOCAL : http://192.168.1.88:3000/api
-  //URL WEB : http://api.digitalizaactivaturismo.cl/api/
+  //URL WEB : http://api.digitalizaactivaturismo.cl/api
   baseURL: "http://api.digitalizaactivaturismo.cl/api",
   headers: {
     "Content-type": "application/json",

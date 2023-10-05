@@ -10,6 +10,7 @@ const AdminUserCreateViewModel = () => {
   const roles: Rol[] = [
     { id: "1", name: "Administrador" },
     { id: "2", name: "Operador" },
+    { id: "3", name: "Bombero" }
   ];
 
   const [values, setValues] = useState({
@@ -31,8 +32,12 @@ const AdminUserCreateViewModel = () => {
       const response = await create(values);
       setResponseMessage(response.message);
       setLoading(false);
-      resetForm(); 
+      if (response.success) {
+        resetForm();
+        return true; // Indica que la creación fue exitosa
+      }
     }
+    return false; // Indica que la creación no fue exitosa
   };
 
   const isValidForm = (): boolean => {

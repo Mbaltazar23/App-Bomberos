@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Image, StyleSheet, Text } from "react-native";
+import { View, Image, StyleSheet } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 
 interface Props {

@@ -1,13 +1,13 @@
 import React from "react";
-import { Movement } from "../../Domain/entities/Movement";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TouchableOpacity, Image } from "react-native";
-import { OperatorMovementListScreen } from "../views/operator/movements/list/MovementList";
 import { OperatorMovementCreateScreen } from "../views/operator/movements/create/MovementCreate";
 import { OperatorMovementUpdateScreen } from "../views/operator/movements/update/MovementUpdate";
+import { OperatorMovementListScreen } from "../views/operator/movements/list/MovementList";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { MovementProvider } from "../context/MovementContext";
-import { Truck } from "../../Domain/entities/Truck";
+import { Movement } from "../../Domain/entities/Movement";
 import { Product } from "../../Domain/entities/Product";
+import { Truck } from "../../Domain/entities/Truck";
 
 export type OperatorMovementStackParamList = {
   OperatorMovementListScreen: undefined;

@@ -9,11 +9,11 @@ const OperatorMovementListViewModel = () => {
   const [selectedMovementId, setSelectedMovementId] =
     useState<Movement | null>();
 
-  const { movements, getMovementsByUser, remove , products,
+  const { movements, getMovementsByUser, remove, products,
     trucks,
     getAllStockProducts,
     getAllTrucks, } = useContext(MovementContext);
-  const {user} = useContext(UserConext)
+  const { user } = useContext(UserConext)
 
   const handleDeleteMovement = (Movement: Movement) => {
     setSelectedMovementId(Movement);

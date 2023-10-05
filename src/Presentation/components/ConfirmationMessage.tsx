@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Modal } from "react-native";
 import { MyColors } from "../theme/AppTheme";
 
 interface DeleteConfirmationProps {
-  type: "product" | "truck" | "movement" | "user";
+  type: "product" | "truck" | "movement" | "user" | "note" | "responsibility";
   onConfirm: () => void;
   onCancel: () => void;
   visible: boolean;
@@ -22,9 +22,12 @@ export const DeleteConfirmation = ({
     confirmationMessage = "¿Estás seguro de que deseas eliminar este camion?";
   } else if (type == "user") {
     confirmationMessage = "¿Estás seguro de que deseas eliminar este usuario?";
+  } else if (type == "movement") {
+    confirmationMessage = "¿Estás seguro de que deseas eliminar este movimiento?";
+  } else if (type == "note") {
+    confirmationMessage = "¿Estás seguro que deseas eliminar esta nota?"
   } else {
-    confirmationMessage =
-      "¿Estás seguro de que deseas eliminar este movimiento?";
+    confirmationMessage = "¿Estás seguro que deseas eliminar a este responsable?"
   }
 
   return (

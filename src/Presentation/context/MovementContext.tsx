@@ -10,7 +10,7 @@ import { Movement } from "../../Domain/entities/Movement";
 import { Product } from "../../Domain/entities/Product";
 import { Truck } from "../../Domain/entities/Truck";
 
-export interface MovementContext {
+export interface MovementContextProps {
   movements: Movement[];
   products: Product[];
   trucks: Truck[];
@@ -22,7 +22,7 @@ export interface MovementContext {
   remove(Movement: Movement): Promise<ResponseApiBombero>;
 }
 
-export const MovementContext = createContext({} as MovementContext);
+export const MovementContext = createContext({} as MovementContextProps);
 
 export const MovementProvider = ({ children }: any) => {
   const [movements, setMovements] = useState<Movement[]>([]);
