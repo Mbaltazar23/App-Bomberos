@@ -11,6 +11,7 @@ const AdminUpdateUserViewModel = (user: User) => {
   const roles: Rol[] = [
     { id: "1", name: "Administrador" },
     { id: "2", name: "Operador" },
+    { id: "3", name: "Bombero" }
   ];
 
   const [values, setValues] = useState({
