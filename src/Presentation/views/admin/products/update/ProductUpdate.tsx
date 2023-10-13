@@ -42,9 +42,15 @@ export const AdminProductUpdateScreen = ({ navigation, route }: Props) => {
   useEffect(() => {
     if (responseMessage !== "") {
       ToastAndroid.show(responseMessage, ToastAndroid.LONG);
-      navigation.navigate("AdminProductListScreen");
     }
   }, [responseMessage]);
+
+  const handleUpdateProduct = async() => {
+    const isSuccess = await updateProduct()
+    if (isSuccess) {
+      navigation.navigate("AdminProductListScreen");
+    }
+  }
 
   return (
     <View style={styles.container}>
@@ -95,7 +101,7 @@ export const AdminProductUpdateScreen = ({ navigation, route }: Props) => {
           <View style={styles.buttonContainer}>
             <RoundedButton
               text="ACTUALIZAR PRODUCTO"
-              onPress={() => updateProduct()}
+              onPress={() => handleUpdateProduct()}
             />
           </View>
         </ScrollView>

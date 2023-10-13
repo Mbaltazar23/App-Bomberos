@@ -28,9 +28,15 @@ export const AdminTruckCreateScreen = ({ navigation, route }: Props) => {
   useEffect(() => {
     if (responseMessage !== "") {
       ToastAndroid.show(responseMessage, ToastAndroid.LONG);
-      navigation.navigate("AdminTruckListScreen");
     }
   }, [responseMessage]);
+
+  const handleCreateTruck = async() => {
+    const isSuccess = await createTruck()
+    if (isSuccess) {
+      navigation.navigate("AdminTruckListScreen");
+    }
+  }
 
   return (
     <View style={styles.container}>
@@ -66,7 +72,7 @@ export const AdminTruckCreateScreen = ({ navigation, route }: Props) => {
         />
       </View>
       <View style={styles.buttonContainer}>
-        <RoundedButton text="CREAR CAMION" onPress={() => createTruck()} />
+        <RoundedButton text="CREAR CAMION" onPress={() => handleCreateTruck()} />
       </View>
       {loading && (
         <ActivityIndicator

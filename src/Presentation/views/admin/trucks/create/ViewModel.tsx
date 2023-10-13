@@ -22,8 +22,12 @@ const AdminTruckCreateViewModel = () => {
       const response = await create(values);
       setResponseMessage(response.message);
       setLoading(false);
-      resetForm();
+      if (response.success) {
+        resetForm();
+        return true; // Indica que la creación fue exitosa
+      }
     }
+    return false; // Indica que la creación no fue exitosa
   };
 
   const isValidForm = (): boolean => {

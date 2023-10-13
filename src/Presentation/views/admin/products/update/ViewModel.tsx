@@ -23,14 +23,21 @@ const AdminProductUpdateViewModel = (product: Product) => {
   const updateProduct = async () => {
     console.log("Producto Formulario : " + JSON.stringify(values));
     let response = {} as ResponseApiBombero;
-    if (values.image?.includes("https://")) {
-      // ACTUALIZAR SIN IMAGEN
-      response = await update(values);
-    } else {
-      response = await updateWithImages(values, file!);
+
+    if (isValidForm()) {
+      if (values.image?.includes("https://")) {
+        // ACTUALIZAR SIN IMAGEN
+        response = await update(values);
+      } else {
+        response = await updateWithImages(values, file!);
+      }
+      setResponseMessage(response.message);
+      setLoading(false);
+      if (response.success) {
+        return true; // Indica que la creación fue exitosa
+      }
     }
-    setResponseMessage(response.message);
-    setLoading(false);
+    return false; // Indica que la creación no fue exitosa
   };
 
   const pickImage = async () => {
@@ -57,6 +64,18 @@ const AdminProductUpdateViewModel = (product: Product) => {
       onChange("image", result.assets[0].uri);
       setFile(result.assets[0]);
     }
+  };
+
+  const isValidForm = (): boolean => {
+    if (values.name === "") {
+      setResponseMessage("Ingrese un nombre para el Producto !!");
+      return false;
+    }
+    if (values.stock == 0) {
+      setResponseMessage("Ingrese un valor en el stock al Producto!!");
+      return false;
+    }
+    return true;
   };
 
   return {

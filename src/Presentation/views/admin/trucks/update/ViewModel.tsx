@@ -19,7 +19,11 @@ const AdminTruckUpdateViewModel = (truck: Truck) => {
       const response = await update(values);
       setResponseMessage(response.message);
       setLoading(false);
+      if (response.success) {
+        return true; // Indica que la creación fue exitosa
+      }
     }
+    return false; // Indica que la creación no fue exitosa
   };
 
   const isValidForm = (): boolean => {

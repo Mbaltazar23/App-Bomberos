@@ -42,9 +42,15 @@ export const AdminProductCreateScreen = ({ navigation, route }: Props) => {
   useEffect(() => {
     if (responseMessage !== "") {
       ToastAndroid.show(responseMessage, ToastAndroid.LONG);
-      navigation.navigate("AdminProductListScreen");
     }
   }, [responseMessage]);
+
+  const handleCreateProduct = async() => {
+    const isSuccess = await createProduct()
+    if (isSuccess) {
+      navigation.navigate("AdminProductListScreen");
+    }
+  }
 
   return (
     <View style={styles.container}>
@@ -95,7 +101,7 @@ export const AdminProductCreateScreen = ({ navigation, route }: Props) => {
           <View style={styles.buttonContainer}>
             <RoundedButton
               text="CREAR PRODUCTO"
-              onPress={() => createProduct()}
+              onPress={() => handleCreateProduct()}
             />
           </View>
         </ScrollView>

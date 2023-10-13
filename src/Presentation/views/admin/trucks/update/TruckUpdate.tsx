@@ -33,6 +33,13 @@ export const AdminTruckUpdateScreen = ({ navigation, route }: Props) => {
     }
   }, [responseMessage]);
 
+  const handleUpdateTruck = async() => {
+    const isSuccess = await updateTruck()
+    if (isSuccess) {
+      navigation.navigate("AdminTruckListScreen");
+    }
+  }
+
   return (
     <View style={styles.container}>
       <Image
@@ -67,7 +74,7 @@ export const AdminTruckUpdateScreen = ({ navigation, route }: Props) => {
         />
       </View>
       <View style={styles.buttonContainer}>
-        <RoundedButton text="CREAR CAMION" onPress={() => updateTruck()} />
+        <RoundedButton text="CREAR CAMION" onPress={() => handleUpdateTruck()} />
       </View>
       {loading && (
         <ActivityIndicator

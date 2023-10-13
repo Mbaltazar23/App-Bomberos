@@ -21,13 +21,17 @@ const AdminProductCreateViewModel = () => {
 
   const createProduct = async () => {
     console.log("Producto Formulario : " + JSON.stringify(values));
-    setLoading(true);
-    const response = await create(values, file!);
-    setResponseMessage(response.message);
-    setLoading(false);
-    if (response.success) {
-      resetForm();
+    if (isValidForm()) {
+      setLoading(true);
+      const response = await create(values, file!);
+      setResponseMessage(response.message);
+      setLoading(false);
+      if (response.success) {
+        resetForm();
+        return true; // Indica que la creación fue exitosa
+      }
     }
+    return false; // Indica que la creación no fue exitosa
   };
 
   const pickImage = async () => {
@@ -54,6 +58,18 @@ const AdminProductCreateViewModel = () => {
       onChange("image", result.assets[0].uri);
       setFile(result.assets[0]);
     }
+  };
+
+  const isValidForm = (): boolean => {
+    if (values.name === "") {
+      setResponseMessage("Ingrese un nombre para el Producto !!");
+      return false;
+    }
+    if (values.stock == 0) {
+      setResponseMessage("Ingrese un valor en el stock al Producto!!");
+      return false;
+    }
+    return true;
   };
 
   const resetForm = async () => {
