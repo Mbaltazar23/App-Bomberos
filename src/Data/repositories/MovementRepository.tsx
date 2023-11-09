@@ -1,14 +1,15 @@
 import { AxiosError } from "axios";
-import { Movement } from "../../Domain/entities/Movement";
-import { User } from "../../Domain/entities/User";
+import { ResponseApiBombero } from "../sources/remote/models/ResponseApiBombero";
 import { MovementRepository } from "../../Domain/repositories/MovementRepository";
 import { ApiBombero } from "../sources/remote/api/ApiBombero";
-import { ResponseApiBombero } from "../sources/remote/models/ResponseApiBombero";
+import { Movement } from "../../Domain/entities/Movement";
+import { Truck } from "../../Domain/entities/Truck";
 
 export class MovementRepositoryImpl implements MovementRepository {
-  async findByMovementsForUser(id_user: string): Promise<Movement[]> {
+
+  async findByMovementsForTruck(id_user: string): Promise<Truck[]> {
     try {
-      const response = await ApiBombero.get<Movement[]>(
+      const response = await ApiBombero.get<Truck[]>(
         `/movement/findByUser/${id_user}`
       );
       return Promise.resolve(response.data);

@@ -17,7 +17,7 @@ interface Props {
     undefined
   >;
 }
-export const OperatorMovementListItem = ({
+export const OperatorMovementProductListItem = ({
   movement,
   trucks,
   products,
@@ -45,7 +45,7 @@ export const OperatorMovementListItem = ({
       return (
         <View style={styles.movementsContainer}>
           {movement.products?.map((product, index) => (
-            <View key={index} style={styles.productDetails}>
+            <View key={index} style={styles.movementDetails}>
               <Text style={styles.subLabel}>Producto #{index + 1}:</Text>
               <Text style={styles.info}>Nombre: {product.name}</Text>
               <Text style={styles.info}>Stock: {product.stock}</Text>
@@ -136,9 +136,5 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
-  },
-  productDetails: {
-    marginTop: 10,
-    paddingLeft: 10,
   }
 });

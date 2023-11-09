@@ -1,8 +1,8 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { AdminProductNavigator } from "./AdminProductNavigator";
-import { AdminUserNavigator } from "./AdminUserNavigator";
 import { AdminTruckNavigator } from "./AdminTruckNavigator";
+import { AdminUserNavigator } from "./AdminUserNavigator";
 import { AdminInitScreen } from "../views/admin/init/Init";
 
 export type AdminStackParamList = {

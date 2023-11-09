@@ -30,6 +30,7 @@ const AdminTruckCreateViewModel = () => {
     const result = await remove(truck);
     setResponseMessage(result.message);
   };
+  
   return {
     trucks,
     getAllTrucks,

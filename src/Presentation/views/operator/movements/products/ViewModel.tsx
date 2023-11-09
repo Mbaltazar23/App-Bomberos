@@ -3,7 +3,7 @@ import { MovementContext } from "../../../../context/MovementContext";
 import { UserConext } from "../../../../context/UserContext";
 import { Movement } from "../../../../../Domain/entities/Movement";
 
-const OperatorMovementListViewModel = () => {
+const OperatorMovementProductListViewModel = () => {
   const [responseMessage, setResponseMessage] = useState("");
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
   const [selectedMovementId, setSelectedMovementId] =
@@ -54,4 +54,4 @@ const OperatorMovementListViewModel = () => {
   };
 };
 
-export default OperatorMovementListViewModel;
+export default OperatorMovementProductListViewModel;

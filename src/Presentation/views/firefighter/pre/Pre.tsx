@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { ToastAndroid, View, Image, ScrollView, ActivityIndicator } from 'react-native'
-import { StackNavigationProp } from "@react-navigation/stack";
 import { FireFighterStackParamList } from '../../../navigator/FireFighterStackNavigator';
+import { StackNavigationProp } from "@react-navigation/stack";
 import { MyColors, MyStyles } from '../../../theme/AppTheme';
 import { CustomSelectInput } from '../../../components/CustomSelectRolInput';
 import { CustomTextInput } from '../../../components/CustomTextInput';

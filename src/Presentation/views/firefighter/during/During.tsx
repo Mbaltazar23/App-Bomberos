@@ -6,9 +6,9 @@ import { MyStyles, MyColors } from '../../../theme/AppTheme';
 import { CustomTextInput } from '../../../components/CustomTextInput';
 import { useNavigation } from '@react-navigation/native';
 import { RoundedButton } from '../../../components/RoundedButton';
+import { DateFormater } from '../../../utils/DateFormater';
 import useViewModel from "./ViewModel";
 import styles from "./Styles";
-import { DateFormater } from '../../../utils/DateFormater';
 
 export const FireFighterDuringScreen = () => {
   const { user_name, username, content, date_time, loading, createNote, onChange, responseMessage } = useViewModel()

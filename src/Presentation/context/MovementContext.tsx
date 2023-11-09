@@ -11,7 +11,7 @@ import { Product } from "../../Domain/entities/Product";
 import { Truck } from "../../Domain/entities/Truck";
 
 export interface MovementContextProps {
-  movements: Movement[];
+  movements: Truck[];
   products: Product[];
   trucks: Truck[];
   getAllStockProducts(): Promise<void>;
@@ -25,7 +25,7 @@ export interface MovementContextProps {
 export const MovementContext = createContext({} as MovementContextProps);
 
 export const MovementProvider = ({ children }: any) => {
-  const [movements, setMovements] = useState<Movement[]>([]);
+  const [movements, setMovements] = useState<Truck[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
   const [trucks, setTrucks] = useState<Truck[]>([]);
 

@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
-import { UserConext } from "../../../../context/UserContext";
+import { useContext, useState } from "react";
 import { MovementContext } from "../../../../context/MovementContext";
+import { UserConext } from "../../../../context/UserContext";
 
 const OperatorMovementCreateViewModel = () => {
   const [responseMessage, setResponseMessage] = useState("");
@@ -47,7 +47,7 @@ const OperatorMovementCreateViewModel = () => {
       setResponseMessage("Ingrese cuantos productos necesita !!");
       return false;
     }
-    if (values.truck_id == "") {
+    if (values.truck_id === "") {
       setResponseMessage("Seleccione un camion para el movimiento !!");
       return false;
     }

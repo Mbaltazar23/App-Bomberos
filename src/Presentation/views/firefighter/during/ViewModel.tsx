@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
-import { UserConext } from '../../../context/UserContext';
 import { NoteContext } from '../../../context/NoteContext';
+import { UserConext } from '../../../context/UserContext';
 
 const FireFighterDuringViewModel = () => {
   const [responseMessage, setResponseMessage] = useState("");
@@ -16,20 +16,20 @@ const FireFighterDuringViewModel = () => {
     content: ""
   })
 
-  const createNote  = async () => {
+  const createNote = async () => {
     if (isValidForm()) {
-        //console.log("VALUES: ", JSON.stringify(values, null, 3));
-        setLoading(true);
-        const response = await create(values);
-        setResponseMessage(response.message);
-        setLoading(false);
-        if (response.success) {
-            resetForm();
-            return true; // Indica que la creación fue exitosa
-        }
+      //console.log("VALUES: ", JSON.stringify(values, null, 3));
+      setLoading(true);
+      const response = await create(values);
+      setResponseMessage(response.message);
+      setLoading(false);
+      if (response.success) {
+        resetForm();
+        return true; // Indica que la creación fue exitosa
+      }
     }
     return false; // Indica que la creación no fue exitosa
-};
+  };
 
   const onChange = (property: string, value: any) => {
     setValues({ ...values, [property]: value });

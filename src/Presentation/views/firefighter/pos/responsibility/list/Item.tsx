@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableOpacity, View, Text, Image, StyleSheet } from "react-native";
+import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
 import { FireFighterResponsibilityParamList } from '../../../../../navigator/FireFighterResponsibilityNavigator';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Responsibility } from '../../../../../../Domain/entities/Responsibility';
@@ -9,7 +9,6 @@ import { User } from '../../../../../../Domain/entities/User';
 interface Props {
     responsibility: Responsibility;
     operators: User[]
-    remove: (id: string) => void;
     navigation: StackNavigationProp<
         FireFighterResponsibilityParamList,
         "FireFighterResponsibilityListScreen",
@@ -17,14 +16,10 @@ interface Props {
     >;
 }
 
-export const FireFighterResponsibilityListItem = ({ navigation, operators, remove, responsibility }: Props) => {
+export const FireFighterResponsibilityListItem = ({ navigation, operators, responsibility }: Props) => {
     return (
         <TouchableOpacity
-            onPress={() =>
-                navigation.navigate("FireFighterResponsibilityUpdateScreen", {
-                    responsibilty: responsibility,
-                    operators: operators
-                })
+            onPress={() => { }
             }>
             <View style={styles.container}>
                 <View style={styles.movementInfoContainer}>
@@ -37,12 +32,6 @@ export const FireFighterResponsibilityListItem = ({ navigation, operators, remov
                         {DateFormater(responsibility.date_time!)}
                     </Text>
                 </View>
-                <TouchableOpacity onPress={() => remove(responsibility.id!)}>
-                    <Image
-                        style={styles.actionImage}
-                        source={require("../../../../../../../assets/trash.png")}
-                    />
-                </TouchableOpacity>
             </View>
             <View style={styles.divider}></View>
         </TouchableOpacity>

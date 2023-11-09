@@ -1,6 +1,6 @@
 import { View, Text } from "react-native";
-import { StackScreenProps } from "@react-navigation/stack";
 import { FireFighterStackParamList } from "../../../navigator/FireFighterStackNavigator";
+import { StackScreenProps } from "@react-navigation/stack";
 import { RoundedButton } from "../../../components/RoundedButton";
 import styles from "./Styles";
 

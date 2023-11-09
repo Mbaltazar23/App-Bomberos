@@ -8,7 +8,7 @@ const FireFigtherDuringStyles = StyleSheet.create({
     width: 110,
     height: 110,
     resizeMode: "contain",
-    bottom:10
+    bottom: 10
   },
   form: {
     backgroundColor: "white",

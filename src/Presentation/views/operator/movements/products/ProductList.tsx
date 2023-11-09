@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { FlatList, ToastAndroid, View } from "react-native";
 import { OperatorMovementStackParamList } from "../../../../navigator/OperatorMovementNavigator";
-import { OperatorMovementListItem } from "./Item";
+import { OperatorMovementProductListItem } from "./Item";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { DeleteConfirmation } from "../../../../components/ConfirmationMessage";
 import { useNavigation } from "@react-navigation/native";
 import useViewModel from "./ViewModel";
 
-export const OperatorMovementListScreen = () => {
+export const OperatorMovementProductListScreen = () => {
 
   const navigation =
     useNavigation<
@@ -57,10 +57,10 @@ export const OperatorMovementListScreen = () => {
         data={movements}
         keyExtractor={(item) => item.id!}
         renderItem={({ item }) => (
-          <OperatorMovementListItem
+          <OperatorMovementProductListItem
             movement={item}
             products={products}
-            option="movement"
+            option="product"
             trucks={trucks}
             navigation={navigation}
           />

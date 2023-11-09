@@ -1,7 +1,7 @@
 import { MovementRepositoryImpl } from "../../../Data/repositories/MovementRepository";
 
-const { findByMovementsForUser } = new MovementRepositoryImpl();
+const { findByMovementsForTruck } = new MovementRepositoryImpl();
 
 export const GetAllMovementsUseCase = async (id_user: string) => {
-  return await findByMovementsForUser(id_user);
+  return await findByMovementsForTruck(id_user);
 };

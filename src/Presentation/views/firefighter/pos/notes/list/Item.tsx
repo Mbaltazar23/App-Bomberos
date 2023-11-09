@@ -8,7 +8,6 @@ import { Note } from '../../../../../../Domain/entities/Note';
 
 interface Props {
     note: Note;
-    remove: (id: string) => void;
     navigation: StackNavigationProp<
         FireFighterNoteParamList,
         "FireFighterNoteListScreen",
@@ -16,13 +15,10 @@ interface Props {
     >;
 }
 
-export const FireFighterNoteListItem = ({ note, remove, navigation }: Props) => {
+export const FireFighterNoteListItem = ({ note, navigation }: Props) => {
     return (
         <TouchableOpacity
-            onPress={() =>
-                navigation.navigate("FireFighterUpdateNoteScreen", {
-                    note: note,
-                })
+            onPress={() => { }
             }
         >
             <View style={styles.container}>
@@ -39,12 +35,6 @@ export const FireFighterNoteListItem = ({ note, remove, navigation }: Props) => 
                         {DateFormater(note.date_time!)}
                     </Text>
                 </View>
-                <TouchableOpacity onPress={() => remove(note.id!)}>
-                    <Image
-                        style={styles.actionImage}
-                        source={require("../../../../../../../assets/trash.png")}
-                    />
-                </TouchableOpacity>
             </View>
             <View style={styles.divider}></View>
         </TouchableOpacity>

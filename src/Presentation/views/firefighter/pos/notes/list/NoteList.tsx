@@ -44,7 +44,6 @@ export const FireFighterNoteListScreen = () => {
         renderItem={({ item }) => (
           <FireFighterNoteListItem
             note={item}
-            remove={() => handleDeleteNote(item)}
             navigation={navigation}
           />
         )}

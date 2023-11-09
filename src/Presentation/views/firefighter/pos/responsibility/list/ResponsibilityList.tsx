@@ -48,7 +48,7 @@ export const FireFighterResponsibilityListScreen = () => {
                     <FireFighterResponsibilityListItem
                         responsibility={item}
                         operators={operators}
-                        remove={() => handleDeleteResponsibility(item)}
+                        //remove={() => handleDeleteResponsibility(item)}
                         navigation={navigation}
                     />
                 )}

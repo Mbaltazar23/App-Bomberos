@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { MovementContext } from "../../../../context/MovementContext";
 import { UserConext } from "../../../../context/UserContext";
 import { Movement } from "../../../../../Domain/entities/Movement";
@@ -11,7 +11,7 @@ const OperatorMovementUpdateViewModel = (movement: Movement) => {
 
   const [values, setValues] = useState(movement);
 
-  console.log("VALUES: ", JSON.stringify(values, null, 3));
+  //console.log("VALUES: ", JSON.stringify(values, null, 3));
 
   const onChange = (property: string, value: any) => {
     setValues({ ...values, [property]: value });
@@ -41,7 +41,7 @@ const OperatorMovementUpdateViewModel = (movement: Movement) => {
       setResponseMessage("Ingrese cuantos productos necesita !!");
       return false;
     }
-    if (values.truck_id == "") {
+    if (values.truck_id === "") {
       setResponseMessage("Seleccione un camion para el movimiento !!");
       return false;
     }
